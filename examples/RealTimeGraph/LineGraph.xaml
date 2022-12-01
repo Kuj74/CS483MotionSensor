@@ -19,10 +19,10 @@
             <RowDefinition Height="50*" />
         </Grid.RowDefinitions>
         <ToggleSwitch x:Name="streamSwitch" HorizontalAlignment="Stretch" Margin="10,10,10,0"   Toggled="streamSwitch_Toggled">
-           
+
         </ToggleSwitch>
         <oxy:PlotView Model="{Binding MyModel}" Grid.Row="1"/>
         <Button x:Name="back" Content="Back" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="back_Click" Grid.Row="2"/>
-        <Button x:Name="Download" Content="Button" Margin="76,76,0,0" VerticalAlignment="Stretch" Click="Download_Click"/>
+        <Button x:Name="Download" Content="Download" Margin="0,10,0,10" VerticalAlignment="Stretch" Click="Download_Click" HorizontalAlignment="Center" Grid.Row="3" Width="1480"/>
     </Grid>
 </Page>

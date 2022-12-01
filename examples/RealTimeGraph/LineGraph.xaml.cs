@@ -107,7 +107,13 @@ namespace RealTimeGraph {
                     (model.Series[1] as LineSeries).Points.Add(new DataPoint(samples, value.Y));
                     (model.Series[2] as LineSeries).Points.Add(new DataPoint(samples, value.Z));
                     samples++;
-                   // ints[model.Series[0], model.Series[1], model.Series[2]];
+                    int x = Convert.ToInt32(value.X);
+                    int y = Convert.ToInt32(value.Y);
+                    int z = Convert.ToInt32(value.Z);
+
+                    //ints[x, y, z];
+
+
                     model.InvalidatePlot(true);
                     if (samples > MainViewModel.MAX_DATA_SAMPLES) {
                         model.Axes[1].Reset();
@@ -175,43 +181,7 @@ namespace RealTimeGraph {
                 //}
             }
 
-            //accelerometer.PackedAcceleration.AddRouteAsync(source => source.Stream(async data => {
-            //    var value = data.Value<Acceleration>();
-            //    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () => {
-            //        (model.Series[0] as LineSeries).Points.Add(new DataPoint(samples, value.X));
-            //        (model.Series[1] as LineSeries).Points.Add(new DataPoint(samples, value.Y));
-            //        (model.Series[2] as LineSeries).Points.Add(new DataPoint(samples, value.Z));
-            //        samples++;
-
-            //        //var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-            //        //savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            //        //savePicker.FileTypeChoices.Add("CSV file", new List<string>() { ".csv" });
-            //        //savePicker.SuggestedFileName = "Recorded on" + DateTime.Now.ToString();
-            //        //Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-            //        //if (file != null)
-            //        //{
-
-            //        //    for (int i = 0; i < 100; i++)
-            //        //    {
-            //        //        var line = String.Format("{0},{1},{2}", value.X, value.Y, value.Z);
-            //        //      //  sw.WriteLine(line);
-            //        //    }
-            //        //}
-                    
-
-            //        model.InvalidatePlot(true);
-            //        if (samples > MainViewModel.MAX_DATA_SAMPLES)
-            //        {
-            //            model.Axes[1].Reset();
-            //            model.Axes[1].Maximum = samples;
-            //            model.Axes[1].Minimum = (samples - MainViewModel.MAX_DATA_SAMPLES);
-            //            model.Axes[1].Zoom(model.Axes[1].Minimum, model.Axes[1].Maximum);
-
-                        
-            //        }
-            //    });
-            //})
-            // );
+           
           
 
 

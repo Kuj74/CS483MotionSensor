@@ -1,0 +1,91 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Jacob Kujawa\\Desktop\\test\\MetaWear-SDK-CSharp\\examples\\RealTimeGraph\\RealTimeGraph.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Jacob Kujawa\\Desktop\\test\\MetaWear-SDK-CSharp\\examples\\RealTimeGraph\\RealTimeGraph.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Jacob Kujawa\\Desktop\\test\\MetaWear-SDK-CSharp\\examples\\RealTimeGraph\\RealTimeGraph.csproj",
+        "projectName": "RealTimeGraph",
+        "projectPath": "C:\\Users\\Jacob Kujawa\\Desktop\\test\\MetaWear-SDK-CSharp\\examples\\RealTimeGraph\\RealTimeGraph.csproj",
+        "packagesPath": "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jacob Kujawa\\Desktop\\test\\MetaWear-SDK-CSharp\\examples\\RealTimeGraph\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Jacob Kujawa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "uap10.0.16299"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "uap10.0.16299": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "uap10.0.16299": {
+          "dependencies": {
+            "MetaWear.CSharp": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "MetaWear.CSharp.Win10": {
+              "target": "Package",
+              "version": "[1.0.9, )"
+            },
+            "Microsoft.NETCore.UniversalWindowsPlatform": {
+              "target": "Package",
+              "version": "[6.1.7, )"
+            },
+            "OxyPlot.Windows": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

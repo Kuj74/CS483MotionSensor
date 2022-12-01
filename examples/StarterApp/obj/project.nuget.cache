@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "dgSpecHash": "GJhRmB4vqKFgNDOIECyztKv29lPjjK9Il5KA6BCufeWIFeFSIpdOM8A8YliG0xJBgHJqCc/7mfeGkBDimBw6pA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jacob Kujawa\\Desktop\\test\\MetaWear-SDK-CSharp\\examples\\StarterApp\\StarterApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\metawear.csharp\\1.1.0\\metawear.csharp.1.1.0.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\metawear.csharp.win10\\1.0.9\\metawear.csharp.win10.1.0.9.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\microsoft.net.native.compiler\\2.1.8\\microsoft.net.native.compiler.2.1.8.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\microsoft.net.uwpcoreruntimesdk\\2.1.2\\microsoft.net.uwpcoreruntimesdk.2.1.2.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\microsoft.netcore.universalwindowsplatform\\6.1.7\\microsoft.netcore.universalwindowsplatform.6.1.7.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform\\6.1.7\\runtime.win10-arm-aot.microsoft.netcore.universalwindowsplatform.6.1.7.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-arm.microsoft.net.native.compiler\\2.1.8\\runtime.win10-arm.microsoft.net.native.compiler.2.1.8.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-arm.microsoft.net.native.sharedlibrary\\2.1.8\\runtime.win10-arm.microsoft.net.native.sharedlibrary.2.1.8.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\\2.1.2\\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk.2.1.2.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-arm.microsoft.netcore.universalwindowsplatform\\6.1.7\\runtime.win10-arm.microsoft.netcore.universalwindowsplatform.6.1.7.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x64-aot.microsoft.netcore.universalwindowsplatform\\6.1.7\\runtime.win10-x64-aot.microsoft.netcore.universalwindowsplatform.6.1.7.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x64.microsoft.net.native.compiler\\2.1.8\\runtime.win10-x64.microsoft.net.native.compiler.2.1.8.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x64.microsoft.net.native.sharedlibrary\\2.1.8\\runtime.win10-x64.microsoft.net.native.sharedlibrary.2.1.8.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\\2.1.2\\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk.2.1.2.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\\6.1.7\\runtime.win10-x64.microsoft.netcore.universalwindowsplatform.6.1.7.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x86-aot.microsoft.netcore.universalwindowsplatform\\6.1.7\\runtime.win10-x86-aot.microsoft.netcore.universalwindowsplatform.6.1.7.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x86.microsoft.net.native.compiler\\2.1.8\\runtime.win10-x86.microsoft.net.native.compiler.2.1.8.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x86.microsoft.net.native.sharedlibrary\\2.1.8\\runtime.win10-x86.microsoft.net.native.sharedlibrary.2.1.8.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\\2.1.2\\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk.2.1.2.nupkg.sha512",
+    "C:\\Users\\Jacob Kujawa\\.nuget\\packages\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\\6.1.7\\runtime.win10-x86.microsoft.netcore.universalwindowsplatform.6.1.7.nupkg.sha512"
+  ],
+  "logs": []
+}

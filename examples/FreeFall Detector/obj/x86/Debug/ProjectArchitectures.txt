@@ -1,0 +1,1 @@
+C:\Users\Jacob Kujawa\Desktop\test\MetaWear-SDK-CSharp\examples\FreeFall Detector\FreeFall Detector.csproj;x86

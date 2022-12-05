@@ -25,34 +25,42 @@ using Windows.System;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace RealTimeGraph {
+namespace RealTimeGraph
+{
 
     //public List<BluetoothLEDevice> Devices { get; set; }
 
-    public class MainViewModel {
+    public class MainViewModel
+    {
         public const int MAX_DATA_SAMPLES = 960;
-        public MainViewModel() {
-            MyModel = new PlotModel {
+        public MainViewModel()
+        {
+            MyModel = new PlotModel
+            {
                 Title = "Acceleration",
                 IsLegendVisible = true
             };
-            MyModel.Series.Add(new LineSeries {
+            MyModel.Series.Add(new LineSeries
+            {
                 BrokenLineStyle = LineStyle.Solid,
                 MarkerStroke = OxyColor.FromRgb(1, 0, 0),
                 LineStyle = LineStyle.Solid,
                 Title = "x-axis"
             });
-            MyModel.Series.Add(new LineSeries {
+            MyModel.Series.Add(new LineSeries
+            {
                 MarkerStroke = OxyColor.FromRgb(0, 1, 0),
                 LineStyle = LineStyle.Solid,
                 Title = "y-axis"
             });
-            MyModel.Series.Add(new LineSeries {
+            MyModel.Series.Add(new LineSeries
+            {
                 MarkerStroke = OxyColor.FromRgb(0, 0, 1),
                 LineStyle = LineStyle.Solid,
                 Title = "z-axis"
             });
-            MyModel.Axes.Add(new LinearAxis {
+            MyModel.Axes.Add(new LinearAxis
+            {
                 Position = AxisPosition.Left,
                 MajorGridlineStyle = LineStyle.Solid,
                 AbsoluteMinimum = -8f,
@@ -61,7 +69,8 @@ namespace RealTimeGraph {
                 Maximum = 8f,
                 Title = "Value"
             });
-            MyModel.Axes.Add(new LinearAxis {
+            MyModel.Axes.Add(new LinearAxis
+            {
                 IsPanEnabled = true,
                 Position = AxisPosition.Bottom,
                 MajorGridlineStyle = LineStyle.Solid,
@@ -77,32 +86,37 @@ namespace RealTimeGraph {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class LineGraph : Page {
+    public sealed partial class LineGraph : Page
+    {
 
         private IMetaWearBoard metawear;
         private IAccelerometer accelerometer;
         private ILogging logging;
 
-        int[,,] ints = new int[3, 3, 3];
-        public LineGraph() {
+        List<string> ints = new List<string>();
+        public LineGraph()
+        {
             InitializeComponent();
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e) {
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
             base.OnNavigatedTo(e);
 
             //var logging = metawear.GetModule<ILogging>();
-            
-        var samples = 0;
+
+            var samples = 0;
             var model = (DataContext as MainViewModel).MyModel;
 
             metawear = MbientLab.MetaWear.Win10.Application.GetMetaWearBoard(e.Parameter as BluetoothLEDevice);
             accelerometer = metawear.GetModule<IAccelerometer>();
             accelerometer.Configure(odr: 100f, range: 8f);
 
-            await accelerometer.PackedAcceleration.AddRouteAsync(source => source.Stream(async data => {
+            await accelerometer.PackedAcceleration.AddRouteAsync(source => source.Stream(async data =>
+            {
                 var value = data.Value<Acceleration>();
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => {
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                {
                     (model.Series[0] as LineSeries).Points.Add(new DataPoint(samples, value.X));
                     (model.Series[1] as LineSeries).Points.Add(new DataPoint(samples, value.Y));
                     (model.Series[2] as LineSeries).Points.Add(new DataPoint(samples, value.Z));
@@ -111,41 +125,48 @@ namespace RealTimeGraph {
                     int y = Convert.ToInt32(value.Y);
                     int z = Convert.ToInt32(value.Z);
 
-                    //ints[x, y, z];
+                    ints.Add(x.ToString() + " ," + y.ToString() + " ," + z.ToString());
 
 
                     model.InvalidatePlot(true);
-                    if (samples > MainViewModel.MAX_DATA_SAMPLES) {
+                    if (samples > MainViewModel.MAX_DATA_SAMPLES)
+                    {
                         model.Axes[1].Reset();
                         model.Axes[1].Maximum = samples;
                         model.Axes[1].Minimum = (samples - MainViewModel.MAX_DATA_SAMPLES);
                         model.Axes[1].Zoom(model.Axes[1].Minimum, model.Axes[1].Maximum);
                     }
-                   
+
                 });
             }));
         }
 
-        private async void back_Click(object sender, RoutedEventArgs e) {
-            if (!metawear.InMetaBootMode) {
+        private async void back_Click(object sender, RoutedEventArgs e)
+        {
+            if (!metawear.InMetaBootMode)
+            {
                 metawear.TearDown();
                 await metawear.GetModule<IDebug>().DisconnectAsync();
             }
             Frame.GoBack();
         }
 
-        private void streamSwitch_Toggled(object sender, RoutedEventArgs e) {
-            if (streamSwitch.IsOn) {
+        private void streamSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            if (streamSwitch.IsOn)
+            {
                 accelerometer.Acceleration.Start();
                 accelerometer.Start();
-              //  logging.Start();
-                
-                
-            } else {
+                //  logging.Start();
+
+
+            }
+            else
+            {
                 accelerometer.Stop();
                 accelerometer.Acceleration.Stop();
-                
-               // logging.DownloadAsync();
+
+                // logging.DownloadAsync();
                 //logging.Stop();
             }
         }
@@ -162,29 +183,39 @@ namespace RealTimeGraph {
             accelerometer = metawear.GetModule<IAccelerometer>();
             accelerometer.Configure(odr: 100f, range: 8f);
 
-            var savePicker = new Windows.Storage.Pickers.FileSavePicker();
-            savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            savePicker.FileTypeChoices.Add("CSV file", new List<string>() { ".csv" });
-            savePicker.SuggestedFileName = "Recorded on" + DateTime.Now.ToString();
-            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-            if (file != null)
-            {
+            // var savePicker = new Windows.Storage.Pickers.FileSavePicker();
+            //  savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            // savePicker.FileTypeChoices.Add("CSV file", new List<string>() { ".csv" });
+            //savePicker.SuggestedFileName = "Recorded on" + DateTime.Now.ToString();
+            //  Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+            // if (file != null)
+            // {
+            // currently saves to
+            //"C:\\Users\\YourName\\AppData\\Local\\Packages\\fcbddcdb-d674-485d-b099-9550c89131c5_wkrz0q4h1x9v2\\LocalState\\Desktop"
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string filename = DateTime.Now.ToString("yyyy_MM_dd__HH_mm_ss") + ".csv";
+                TextWriter tw = new StreamWriter(path + " " + filename);
 
-                foreach(var item in ints)
+                foreach (var item in ints)
                 {
 
+                    tw.WriteLine(item.ToString());
+                    
                 }
+            tw.Close();
+                //Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
                 //for (int i = 0; i < 100; i++)
                 //{
                 //    //var line = String.Format("{0},{1},{2}", value.X, value.Y, value.Z);
                 //    //  sw.WriteLine(line);
                 //}
-            }
-
-           
-          
+                //}
 
 
+
+
+
+           // }
         }
     }
 }
